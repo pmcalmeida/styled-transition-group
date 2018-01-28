@@ -34,9 +34,11 @@ const animated = options => function animatedWithOptions(Target) {
           {...(this.constructor.attrs || {})}
           {...(Target.attrs || {})}
           classNames={transitionClassNames}>
+          {(state) => (
           <Target
             transitionClassNames={transitionClassNames}
-            {...props} />
+            {...props, state} />
+          )}
         </CSSTransition>
       )
     }
